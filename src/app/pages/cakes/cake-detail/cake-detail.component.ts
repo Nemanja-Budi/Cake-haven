@@ -19,7 +19,7 @@ export class CakeDetailComponent implements OnInit {
       this.id = Number(param.get('id'));
     });
 
-    this.cakeService.onGetOneCake(this.id).subscribe((value) => {
+    this.cakeService.getOneCake(this.id).subscribe((value) => {
       this.cake = value;
       console.log(value);
     });

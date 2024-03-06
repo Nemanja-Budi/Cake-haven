@@ -1,1 +1,42 @@
-<p>contact works!</p>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="px-2 w-[70%] mx-auto flex flex-col gap-2">
+    <div class="flex flex-col">
+		<label for="name" class="text-lg">Name</label>
+		<input 
+            class="border-2 p-2 rounded-md" 
+            type="text" 
+            id="name" 
+			formControlName="name" 
+            required 
+            autocomplete="off">
+	</div>
+	<div class="flex flex-col">
+		<label for="email" class="text-lg">Email address</label>
+		<input 
+            class=" border-2 p-2 rounded-md" 
+            type="email" 
+            id="email" 
+			formControlName="email" 
+            required 
+            autocomplete="off">
+	</div>
+    <div class="flex flex-col">
+		<label for="message" class="text-lg">Message</label>
+		<textarea 
+            class=" border-2 p-2 rounded-md"
+            formControlName="message"  
+            id="message" 
+            cols="30" 
+            rows="10">
+        </textarea>
+	</div>
+	<div class="flex justify-between">
+        <button 
+            class="text-white px-5 py-2 rounded-md bg-blue-500" 
+            type="submit"
+            [disabled]="!contactForm.valid"
+            [ngStyle]="{'background-color':  !contactForm.valid ? '#93C5FD' : '#3B82F6' }">
+            Send
+        </button>
+	</div>
+</form>
+

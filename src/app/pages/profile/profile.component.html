@@ -1,1 +1,60 @@
-<p>profile works!</p>
+<form [formGroup]="profileForm" class="px-2 w-[70%] mx-auto flex flex-col gap-2">
+    <div class="flex flex-col">
+		<label for="firstName" class="text-lg">First Name</label>
+		<input 
+            class=" border-2 p-2 rounded-md" 
+            type="text" 
+            id="firstName" 
+			formControlName="firstName" 
+            required 
+            autocomplete="off">
+	</div>
+	<div class="flex flex-col">
+		<label for="lastName" class="text-lg">Last Name</label>
+		<input 
+            class=" border-2 p-2 rounded-md" 
+            type="text" 
+            id="lastName" 
+			formControlName="lastName" 
+            required 
+            autocomplete="off">
+	</div>
+	<div class="flex flex-col">
+		<label for="email" class="text-lg">Email address</label>
+		<input 
+            class=" border-2 p-2 rounded-md" 
+            type="email" 
+            id="email" 
+			formControlName="email" 
+            required 
+            autocomplete="off">
+	</div>
+	<div class="flex justify-between">
+		<button
+            *ngIf="disabledForm" 
+			class=" text-white px-5 py-2 rounded-md bg-blue-500" 
+            type="submit"
+            (click)="onEditForm()">
+            Edit
+        </button>
+        <button 
+            *ngIf="!disabledForm" 
+            class="text-white px-5 py-2 rounded-md bg-blue-500" 
+            (click)="onCancelForm()">
+            Cancel
+        </button>
+        <button 
+            *ngIf="!disabledForm" 
+            class="text-white px-5 py-2 rounded-md bg-blue-500" 
+            type="submit"
+            (click)="onEditUser()"
+            [disabled]="!profileForm.valid"
+            [ngStyle]="{'background-color':  !profileForm.valid ? '#93C5FD' : '#3B82F6' }">
+            Ok
+        </button>
+	</div>
+</form>
+
+<!-- {{ editingMode ? 'Edit': 'Submit' }} -->
+<!-- [disabled]="!profileForm.valid" -->
+<!-- [ngStyle]="{'background-color':  !profileForm.valid ? '#93C5FD' : '#3B82F6' }" -->

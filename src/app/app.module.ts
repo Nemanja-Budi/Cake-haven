@@ -11,6 +11,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CakeItemComponent } from './pages/cakes/cake-item/cake-item.component';
 import { CakeDetailComponent } from './pages/cakes/cake-detail/cake-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CakeDetailComponent } from './pages/cakes/cake-detail/cake-detail.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
